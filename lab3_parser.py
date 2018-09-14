@@ -3,6 +3,7 @@
 
 stacks = []
 
+
 class Stack:
     name = ""
     containers = []
@@ -40,7 +41,7 @@ unparsed_stacks = input('Enter the name of the stacks: ')
 parsed_stacks = unparsed_stacks.split(';')
 
 for x in range(0, len(parsed_stacks)):
-    stack_constructor = Stack(parsed_stacks[x], [])
+    stack_constructor = Stack(parsed_stacks[x].strip().strip('()'), [])
     stacks.append(stack_constructor)
 
 unparsed_containers = input('Enter the container s string: ')
