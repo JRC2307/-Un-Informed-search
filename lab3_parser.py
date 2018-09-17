@@ -21,11 +21,37 @@ def initialize_containers(raw_string, destiny):
         destiny.append(stack_constructor)
 
 
-def are_equal():
-    for x in range(0,len(stacks)):
-        for y in range(0,len(stacks[x])):
-            if stacks[x][y] != goal_state[x][y]: return False
-    return True
+def are_equal(actual):
+    count = 0
+    for index, item in enumerate(goal_state):
+        if item != ['X']:
+            if goal_state[index] == goal_state[index]:
+                count += 1
+    if count == len(goal_state) - goal_state.count(['X']):
+        return True
+    return False
+
+
+def get_children(cost, actual_state, extensions, path, depth):
+    children = []
+    for move in extensions:
+
+        p = path
+        s = actual_state
+        c = cost + 1 + abs(move[0] - move[1])
+
+        if len(s[move[1]]) >= depth:
+            continue
+        if not s[move[0]]:
+            continue
+
+        value = (s[move[0]]).pop()
+        s[move[1]].append(value)
+        p.append(move)
+
+        children.append((c, p, s))
+    return children
+
 
 def main():
 
@@ -42,14 +68,24 @@ def main():
     initialize_containers(uparsed_output, goal_state)
 
     actual_state = [(cost, path, stacks)]
-    cost, path, state = heapq.heappop(actual_state)
 
-    while True:
-        if are_equal():
-            print(cost)
-            print(path)
+    while actual_state:
+        cost, path, state = heapq.heappop(actual_state)
+
+        print(state)
+        if are_equal(state):
+            return path
         else:
             extensions = list(itertools.permutations(range(0, len(state)), 2))
             print(extensions)
+
+            if state not in explored:
+                next_children = get_children(cost, state, extensions, path, no_stacks)
+                for c in next_children:
+                    heapq.heappush(actual_state, c)
+
+                explored.append(state)
+
+    print("No solution found")
 
 main()
