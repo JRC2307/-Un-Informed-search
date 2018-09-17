@@ -3,6 +3,7 @@
 
 import itertools
 import heapq
+import copy
 
 stacks = []
 goal_state = []
@@ -23,12 +24,12 @@ def initialize_containers(raw_string, destiny):
 
 
 def are_equal(actual):
-    count = 0
-    for index, item in enumerate(goal_state):
+    identical_elements = 0
+    for index, item in range(0, len(goal_state)):
         if item != ['X']:
             if actual[index] == goal_state[index]:
-                count += 1
-    if count == len(goal_state) - goal_state.count(['X']):
+                identical_elements += 1
+    if identical_elements == len(goal_state) - goal_state.count(['X']):
         return True
     return False
 
@@ -37,9 +38,8 @@ def get_children(cost, actual_state, extensions, path, depth):
     children = []
     for move in extensions:
 
-        p = path
-        s = actual_state
-        c = cost + 1 + abs(move[0] - move[1])
+        p = copy.deepcopy(path)
+        s = copy.deepcopy(actual_state)
 
         if len(s[move[1]]) >= depth:
             continue
@@ -50,7 +50,7 @@ def get_children(cost, actual_state, extensions, path, depth):
         s[move[1]].append(value)
         p.append(move)
 
-        children.append((c, p, s))
+        children.append((cost + 1 + abs(move[0] - move[1]), p, s))
     return children
 
 
@@ -67,17 +67,16 @@ def main():
 
     initialize_containers(unparsed_stacks, stacks)
     initialize_containers(uparsed_output, goal_state)
-    print(stacks)
-    print(goal_state)
     actual_state = [(cost, path, stacks)]
 
     while actual_state:
         cost, path, state = heapq.heappop(actual_state)
+        print(state)
         if are_equal(state):
+            print(cost)
             return path
         else:
             extensions = list(itertools.permutations(range(0, len(state)), 2))
-
             if state not in explored:
                 next_children = get_children(cost, state, extensions, path, no_stacks)
                 for c in next_children:
