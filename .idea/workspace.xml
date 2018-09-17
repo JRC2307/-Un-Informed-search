@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622b8fe8-225b-449f-9e1b-27004cc4542a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/lab3_parser.py" afterPath="$PROJECT_DIR$/lab3_parser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +16,7 @@
       <file leaf-file-name="lab3_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-630">
+            <state relative-caret-position="0">
               <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="15" />
               <folding />
             </state>
@@ -27,9 +26,11 @@
       <file leaf-file-name="ucs.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/ucs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="89" column="47" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,12 +48,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$USER_HOME$/Downloads/ucs.py" />
         <option value="$PROJECT_DIR$/lab3_parser.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
+    <option name="x" value="417" />
+    <option name="y" value="82" />
     <option name="width" value="1080" />
     <option name="height" value="848" />
   </component>
@@ -192,15 +195,17 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/ucs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="89" column="47" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
+        <state relative-caret-position="0">
           <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="15" />
           <folding />
         </state>

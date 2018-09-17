@@ -1,26 +1,10 @@
 # (A); (B); (C)
 # (A, C); X; X
 
+import itertools
+
 stacks = []
-output_stack = []
-
-class Stack:
-    name = ""
-    containers = []
-
-    def __init__(self, name, containers):
-        self.name = name
-        self.containers = containers
-
-    def add_container(self, container):
-        self.containers.append(container)
-
-    def to_string(self):
-        aux = ""
-        for c in self.containers:
-            aux = aux + c + ";"
-
-        print('Stack: ' + self.name + " Containers: " + aux)
+goal_state = []
 
 
 def initialize_containers(raw_string, destiny):
@@ -28,32 +12,43 @@ def initialize_containers(raw_string, destiny):
     for x in range(0, len(parsed_stacks)):
         parsed_containers = parsed_stacks[x].strip().strip('(').strip(')')
         parsed_elements = parsed_containers.split(',')
-        stack_constructor = Stack(str(x),[])
+        stack_constructor = []
 
         for e in range(0, len(parsed_elements)):
-            stack_constructor.add_container(parsed_elements[e].strip(" "))
+            stack_constructor.append(parsed_elements[e].strip(" "))
 
         destiny.append(stack_constructor)
 
+
 def are_equal():
     for x in range(0,len(stacks)):
-        for y in range(0,len(stacks[x].containers)):
-            if stacks[x].containers[y] != output_stack[x].containers[y]: return False
+        for y in range(0,len(stacks[x])):
+            if stacks[x][y] != goal_state[x][y]: return False
         return True
 
-no_stacks = int(input('Enter the maximum number of containers: '))
-unparsed_stacks = input('Enter the input stacks: ')
-uparsed_output = input('Enter the output stacks: ')
+def main():
 
-initialize_containers(unparsed_stacks, stacks)
-initialize_containers(uparsed_output, output_stack)
+    explored = []
+    path = []
 
-print("\nInitial state: ")
-for e in stacks:
-    e.to_string()
+    cost = 0
 
-print("Goal state: ")
-for g in output_stack:
-    g.to_string()
+    no_stacks = int(input('Enter the maximum number of containers: '))
+    unparsed_stacks = input('Enter the input stacks: ')
+    uparsed_output = input('Enter the output stacks: ')
 
-print(are_equal())
+    initialize_containers(unparsed_stacks, stacks)
+    initialize_containers(uparsed_output, goal_state)
+
+    print(stacks)
+    print(goal_state)
+
+    while True:
+        if are_equal():
+            print(cost)
+            print(path)
+            return 0
+        else:
+            print("oh no")
+
+main()
