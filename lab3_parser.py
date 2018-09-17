@@ -2,6 +2,7 @@
 # (A, C); X; X
 
 import itertools
+import heapq
 
 stacks = []
 goal_state = []
@@ -24,7 +25,7 @@ def are_equal():
     for x in range(0,len(stacks)):
         for y in range(0,len(stacks[x])):
             if stacks[x][y] != goal_state[x][y]: return False
-        return True
+    return True
 
 def main():
 
@@ -40,15 +41,15 @@ def main():
     initialize_containers(unparsed_stacks, stacks)
     initialize_containers(uparsed_output, goal_state)
 
-    print(stacks)
-    print(goal_state)
+    actual_state = [(cost, path, stacks)]
+    cost, path, state = heapq.heappop(actual_state)
 
     while True:
         if are_equal():
             print(cost)
             print(path)
-            return 0
         else:
-            print("oh no")
+            extensions = list(itertools.permutations(range(0, len(state)), 2))
+            print(extensions)
 
 main()
