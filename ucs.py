@@ -24,14 +24,12 @@ def initialize_containers(raw_string, destiny):
 
 
 def are_equal(actual):
-    equal_numbers = 0
+    equal_elements = 0
+    x_count = goal_state.count(['X'])
     for index, item in enumerate(goal_state):
-        if item != ['X']:
-            if actual[index] == goal_state[index]:
-                equal_numbers += 1
-    if equal_numbers == len(goal_state) - goal_state.count(['X']):
-        return True
-    return False
+        if actual[index] == goal_state[index] and item != ['X']: equal_elements = equal_elements + 1
+    if equal_elements == len(goal_state) - x_count: return True
+    else: return False
 
 
 def get_children(cost, actual_state, extensions, path, depth):
