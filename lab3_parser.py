@@ -24,12 +24,12 @@ def initialize_containers(raw_string, destiny):
 
 
 def are_equal(actual):
-    identical_elements = 0
-    for index, item in range(0, len(goal_state)):
+    equal_numbers = 0
+    for index, item in enumerate(goal_state):
         if item != ['X']:
             if actual[index] == goal_state[index]:
-                identical_elements += 1
-    if identical_elements == len(goal_state) - goal_state.count(['X']):
+                equal_numbers += 1
+    if equal_numbers == len(goal_state) - goal_state.count(['X']):
         return True
     return False
 
@@ -54,6 +54,16 @@ def get_children(cost, actual_state, extensions, path, depth):
     return children
 
 
+def print_path(path):
+    aux = 0
+    for p in path:
+        if aux < len(path) - 1:
+            print(p, end="")
+            print("; ", end="")
+        else:
+            print(p)
+        aux = aux+1
+
 def main():
 
     explored = []
@@ -71,9 +81,9 @@ def main():
 
     while actual_state:
         cost, path, state = heapq.heappop(actual_state)
-        print(state)
         if are_equal(state):
             print(cost)
+            print_path(path)
             return path
         else:
             extensions = list(itertools.permutations(range(0, len(state)), 2))
