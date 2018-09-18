@@ -56,7 +56,7 @@ def get_children(cost, actual_state, extensions, path, depth):
         heuristic_cost = heuristic(s)
         s[move[1]].append(value)
         p.append(move)
-
+        c = c + heuristic_cost 
         children.append((c, p, s))
     return children
 
