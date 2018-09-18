@@ -31,6 +31,7 @@ def are_equal(actual):
     if equal_elements == len(goal_state) - x_count: return True
     else: return False
 
+
 def heuristic(actual):
     heuristic = 0
     for index, item in enumerate(goal_state):
@@ -38,6 +39,7 @@ def heuristic(actual):
             if actual[index] != goal_state[index]:
                 heuristic += 1
     return heuristic
+
 
 def get_children(cost, actual_state, extensions, path, depth):
     children = []
