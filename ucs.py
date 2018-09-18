@@ -71,9 +71,9 @@ def main():
 
     cost = 0
 
-    no_stacks = int(input('Enter the maximum number of containers: '))
-    unparsed_stacks = input('Enter the input stacks: ')
-    uparsed_output = input('Enter the output stacks: ')
+    no_stacks = int(input())
+    unparsed_stacks = input()
+    uparsed_output = input()
 
     initialize_containers(unparsed_stacks, stacks)
     initialize_containers(uparsed_output, goal_state)
