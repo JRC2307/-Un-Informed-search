@@ -101,7 +101,6 @@ def main():
                 next_children = get_children(cost, state, extensions, path, no_stacks)
                 for c in next_children:
                     heapq.heappush(actual_state, c)
-                #kep
                 explored.append(state)
 
     print("No solution found")
