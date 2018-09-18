@@ -1,2 +1,2 @@
-#!/bin/sh
-python3 ucs.py
+|#!/bin/sh
+python3 astar.py
