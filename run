@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 lab3_parser.py
+python3 astar.py
