@@ -4,6 +4,8 @@
 import itertools
 import heapq
 import copy
+from random import randint
+
 
 stacks = []
 goal_state = []
@@ -32,13 +34,18 @@ def are_equal(actual):
     else: return False
 
 
-def heuristic(actual):
-    heuristic = 0
+def how_many_equal(actual):
+    equal_elements = 0
+    x_count = goal_state.count(['X'])
     for index, item in enumerate(goal_state):
-        if item != ['X']:
-            if actual[index] != goal_state[index]:
-                heuristic += 1
-    return heuristic
+        if actual[index] == goal_state[index] and item != ['X']: equal_elements = equal_elements + 1
+
+    remain_elements = (len(goal_state) - x_count) - equal_elements
+    return remain_elements
+
+def heuristic(actual):
+    unconsistency = randint(-1, 1)
+    return how_many_equal(actual) + unconsistency
 
 
 def get_children(cost, actual_state, extensions, path, depth):
@@ -47,7 +54,7 @@ def get_children(cost, actual_state, extensions, path, depth):
 
         p = copy.deepcopy(path)
         s = copy.deepcopy(actual_state)
-        c = cost + abs(move[0] - move[1])
+        c = cost + 1 + abs(move[0] - move[1])
 
         if len(s[move[1]]) >= depth:
             continue
