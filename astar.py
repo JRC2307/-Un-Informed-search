@@ -47,7 +47,7 @@ def get_children(cost, actual_state, extensions, path, depth):
 
         p = copy.deepcopy(path)
         s = copy.deepcopy(actual_state)
-        c = cost + abs(move[0] - move[1])
+        c = cost + 1 + abs(move[0] - move[1])
 
         if len(s[move[1]]) >= depth:
             continue
