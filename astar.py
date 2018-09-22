@@ -59,7 +59,7 @@ def get_children(cost, actual_state, extensions, path, depth):
         s[move[1]].append(value)
         p.append(move)
         f = c + h
-        children.append((f, p, s))
+        children.append((c, p, s))
     return children
 
 
