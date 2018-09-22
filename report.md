@@ -56,6 +56,6 @@
     </tr>
     </table>
 
-  * Why does this happen?
-  * Which algorithms are optimal? Why?
-  *  In your opinion, what are the benefits of simpler algorithms versus more complex ones?
+  * Why does this happen? The consistent A* algorithm is a more optimal algorithm because it can assume (through the herustic algorithm) it's going in the right direction to reach the goal. The A* inconsistent cannot be always optimal since there are external factors that can alter the path the algorithm is going to take to reach certain goal. The difference between A* and UCS is that USC expands the node with lowest path cost whereas best expand the node with closest to the goal, but since it is an uninformed algorithm, it can't really tell if it is going in the right direction in all the cases.
+  * Which algorithms are optimal? Why? The three of them optimal because at the end, they reach the expected goal. But in memory/time to reach the expected goal, the best one is the consistent A* algorithm. If the heuristic is well posed, the algorithm can reach a solution efficiently having the certainty that it is following the correct path.
+  *  In your opinion, what are the benefits of simple algorithms versus more complex ones?
