@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="622b8fe8-225b-449f-9e1b-27004cc4542a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/astar.py" afterPath="$PROJECT_DIR$/astar.py" />
-    </list>
+    <list default="true" id="622b8fe8-225b-449f-9e1b-27004cc4542a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
